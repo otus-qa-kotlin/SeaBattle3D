@@ -108,6 +108,7 @@ class BattleFieldDelegate(val gameObjects: MutableList<GameObject>) {
             if (canPropogateShip(x, y, z, len, direction)) {
                 //сохранить корабль и разметить точки на поле
                 propogateShipToMap(x, y, z, len, direction, type)
+                gameObjects.add(StaticShipObject(x, y, z, len, direction))
                 break
             }
         }
