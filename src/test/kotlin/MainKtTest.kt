@@ -3,8 +3,8 @@ import org.jetbrains.exposed.sql.JoinType
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.junit.Test
-import repository.model.Directions
-import repository.model.Ships
+import repository.entity.Directions
+import repository.entity.Ships
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 

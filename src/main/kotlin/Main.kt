@@ -1,8 +1,8 @@
 import configuration.DatabaseSettings
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
-import repository.model.Directions
-import repository.model.Ships
+import repository.entity.Directions
+import repository.entity.Ships
 
 fun main(args: Array<String>) {
     DatabaseSettings.embedded
@@ -11,13 +11,11 @@ fun main(args: Array<String>) {
         addLogger(StdOutSqlLogger)
         SchemaUtils.drop(Ships, Directions)
         SchemaUtils.create(Ships, Directions)
-        val directionToId = Direction.values().map { directionValue ->
+        Direction.values().map { directionValue ->
             directionValue to Directions.insertAndGetId {
                 it[direction] = directionValue.name
             }
         }
-
-
 
         Directions.selectAll().forEach { println(it) }
     }

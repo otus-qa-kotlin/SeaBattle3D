@@ -3,7 +3,7 @@ import org.jetbrains.exposed.sql.andWhere
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.junit.Test
-import repository.model.Ships
+import repository.entity.Ships
 import kotlin.test.assertEquals
 
 internal class GameObjectsTest {
